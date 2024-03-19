@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CounterBtnComponent } from '../counter-btn/counter-btn.component';
-import { FooterServcie } from '../../services/footer.service';
+import { CommonComponent } from '../common';
 
 @Component({
-  selector: 'quair-footer',
+  selector: 'qair-footer',
   standalone: true,
   imports: [
     CommonModule, CounterBtnComponent
@@ -13,9 +13,5 @@ import { FooterServcie } from '../../services/footer.service';
   styleUrl: './footer.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {
-  constructor(private footerService: FooterServcie) {}
-  counter$ = this.footerService.counter$;
-
-  increase = () => this.footerService.increase();
+export class FooterComponent extends CommonComponent {
  }
