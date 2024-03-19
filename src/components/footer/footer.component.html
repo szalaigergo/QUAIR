@@ -1,4 +1,4 @@
-<div class="container" [class.red-bgr]="(counter$ | async)! >= this.LIMIT">
-    <qair-counter-btn [counter]="(counter$ | async)!" (increase)="increase()" />
+<div #container class="container">
+    <qair-counter-btn  />
     <h1>Footer</h1>
 </div>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
 import { CounterBtnComponent } from "../counter-btn/counter-btn.component";
-import { CommonComponent } from '../common';
+import { CommonComponent, provideTheParent } from '../common';
 
 @Component({
     selector: 'qair-header',
@@ -12,7 +12,8 @@ import { CommonComponent } from '../common';
     imports: [
         CommonModule,
         CounterBtnComponent
-    ]
+    ],
+    providers: [provideTheParent(HeaderComponent)],
 })
 export class HeaderComponent extends CommonComponent {
   

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, ViewContainerRef, Injector, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Optional } from '@angular/core';
 import { CommonComponent } from '../common';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'qair-counter-btn',
@@ -9,21 +8,17 @@ import { tap } from 'rxjs';
   imports: [
     CommonModule,
   ],
-  template: `<button class="btn" (click)="this.handleClick()">Clicked {{counter}} times</button>`,
+  template: `<button class="btn" (click)="this.handleClick()">Clicked {{counter$ | async}} times</button>`,
   styleUrl: './counter-btn.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   
 })
-export class CounterBtnComponent implements OnInit {
-  constructor(private parent: CommonComponent) {
-    
-  }
-  ngOnInit(): void {
-  }
-  @Input() counter = 0;
-  @Output() increase = new EventEmitter<string>();
+export class CounterBtnComponent {
+  counter$ = this.parent.counter$
+  
+  constructor(@Optional() private parent: CommonComponent){  }
 
   handleClick() {
-    this.increase.emit()
+    this.parent.increase();
   }
  }
