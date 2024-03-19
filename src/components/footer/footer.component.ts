@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CounterBtnComponent } from '../counter-btn/counter-btn.component';
 import { CommonComponent, provideTheParent } from '../common';
 

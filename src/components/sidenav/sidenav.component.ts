@@ -7,10 +7,10 @@ import { CommonComponent, provideTheParent } from '../common';
     selector: 'qair-sidenav',
     standalone: true,
     template: `
-  <div #container class="container">
-    <h2>SideNav</h2>
-    <qair-counter-btn />
-  </div>`,
+    <div #container class="container">
+      <h2>SideNav</h2>
+      <qair-counter-btn />
+    </div>`,
     styleUrl: './sidenav.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
